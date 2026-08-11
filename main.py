@@ -10,5 +10,3 @@ X_train = data[:, 1:]
 
 X_train = X_train / 255.0
 
-print(len(Y_train))
-print(len(X_train[2]))
