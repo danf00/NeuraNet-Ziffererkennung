@@ -15,3 +15,5 @@ In Softmax wird zuerst dafür gesorgt das die float werte nicht zu inf werden, d
 
 # Forward Funktion
 Die Forward funktion ist zuerst für die aufsummierung der Produkte aus werte und bias zuständig, und bias addieren, danach wird im 128 parameter hidden layer die ReLu Funkion angewendet um die linearität loszuwerden. Danach wird im output layer wieder aufsummiert und am ende softmax angewandt um eine Wahrscheinlichkeit für ein Ergebniss zu erhalten.
+
+# test
