@@ -3,3 +3,4 @@ archive
 archive/mnist_test.csv
 archive/mnist_train.csv
 pseudocode.py
+cnn_modell_feige1.0.npz

@@ -92,5 +92,8 @@ for epoch in range(epochs):
     W2 = W2 -learning_rate * dW2
     b2 = b2 - learning_rate * db2
 
+    if loss < 0.5:
+        np.savez("cnn_model_feige1.0.npz", W1=W1, b1=b1, W2=W2, b2=b2)
+        break
     if epoch % 10 == 0:
         print(f"Epoch {epoch}, Loss: {loss:.4f}")
