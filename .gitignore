@@ -2,3 +2,4 @@
 archive
 archive/mnist_test.csv
 archive/mnist_train.csv
+pseudocode.py

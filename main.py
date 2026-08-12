@@ -42,7 +42,6 @@ def forward(X, W1, b1, W2, b2):
 
 # Daten einspeisung
 
-Z1, A1, Z2, A2 = forward(X_train, W1, b1, W2, b2)
 
 ### loss berechnung
 
@@ -63,8 +62,35 @@ def cross_entropy_loss(A2, y_onehot):
     return loss
 
 y_onehot = one_hot(Y_train)
-loss = cross_entropy_loss(A2, y_onehot)
 
-print(A2.shape)
+#### backpropagation
 
-print(loss)
+def relu_derivate(z):
+    return (z > 0).astype(float)
+
+m = X_train.shape[0]
+
+learning_rate = 0.05
+epochs = 10000
+
+for epoch in range(epochs):
+
+    Z1, A1, Z2, A2 = forward(X_train, W1, b1, W2, b2)
+
+    loss = cross_entropy_loss(A2, y_onehot)
+
+    delta2 = A2 - y_onehot
+    dW2 = 1/m * (A1.T @ delta2)
+    db2 = 1/m * np.sum(delta2, axis=0, keepdims=True)
+
+    delta1 = (delta2 @ W2.T) * relu_derivate(Z1)
+    dW1 = 1/m * (X_train.T @ delta1)
+    db1 = 1/m * np.sum(delta1, axis=0, keepdims=True)
+
+    W1 = W1 - learning_rate * dW1
+    b1 = b1 - learning_rate * db1
+    W2 = W2 -learning_rate * dW2
+    b2 = b2 - learning_rate * db2
+
+    if epoch % 10 == 0:
+        print(f"Epoch {epoch}, Loss: {loss:.4f}")
