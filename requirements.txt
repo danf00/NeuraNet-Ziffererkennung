@@ -1,2 +1,7 @@
-pands
+pandas
 numpy
+pathlib
+pygame
+sys
+os
+random

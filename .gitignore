@@ -1,6 +1,10 @@
 .venv
+.venv3.12
 archive
 archive/mnist_test.csv
 archive/mnist_train.csv
 pseudocode.py
-cnn_modell_feige1.0.npz
+modelle/0.5
+modelle/5k
+modelle/10k
+modelle/20k
