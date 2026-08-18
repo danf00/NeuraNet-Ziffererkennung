@@ -1,0 +1,8 @@
+Feige 1.0 Modell-Info
+--------------------
+Loss: 0.232193
+Eingespeiste Bilder: 60000
+Epochen: 3000
+Hiden-Layer: 1
+Hidden-Layer-Neurons: 128
+Aktivierungsfunktion: ReLU
