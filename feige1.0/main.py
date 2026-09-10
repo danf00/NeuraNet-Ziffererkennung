@@ -5,25 +5,15 @@ from pathlib import Path
 sys.path.append(str(Path(__file__).parent.parent))
 from save_model import save_model_artifacts
 
-
-
 # das mnsit datenset laden und die richtige struktur bringen
 
-# python3 main.py <trainning_data.csv> <output_model.npz>
-
-
 MODEL_NAME = "feige1.0"
-
-
-
-if len(sys.argv) not in (2, 3):
-    print("Usage: python3 main.py <training_data.csv> [output_model_path]")
+if len(sys.argv) != 2:
+    print("Usage: python3 main.py <epochs>")
     sys.exit(1)
 
-training_data_path = sys.argv[1]
-output_model_path = sys.argv[2] if len(sys.argv) == 3 else MODEL_NAME
-
-
+#training_data_path = sys.argv[1]
+#output_model_path = sys.argv[2] if len(sys.argv) == 3 else MODEL_NAME
 df = pd.read_csv(f"{Path(__file__).parent.parent}/archive/mnist_train.csv")
 
 data = df.values
@@ -92,7 +82,8 @@ def relu_derivate(z):
 m = X_train.shape[0]
 
 learning_rate = 0.05
-epochs = 3000
+epochs = int(sys.argv[1])
+
 saved_model = False
 
 

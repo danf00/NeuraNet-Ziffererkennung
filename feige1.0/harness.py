@@ -11,8 +11,6 @@ df = pd.read_csv(f"{Path(__file__).parent.parent}/archive/mnist_test.csv")
 
 data = df.values
 
-# Aktivierungsfunktion für nicht linearität
-
 def relu(Z):
     return np.maximum(0, Z)
 

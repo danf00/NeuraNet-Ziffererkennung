@@ -1,3 +1,7 @@
+#!
+# Achtung: Dieses Skript wurde nicht von mir selbst geschrieben, es hat keinen Einfluss auf das training der KI sondern nur 
+# dient nur der Veranschaulichung der Funktion der KI. Ich habe es lediglich angepasst, damit es mit dem trainierten Modell funktioniert.
+
 import numpy as np
 import pandas as pd
 from pathlib import Path
@@ -39,9 +43,9 @@ fig.suptitle(f"Model: feige1.0--1k-epochs")
 
 for i, ax in enumerate(axes.flat):
     v = random.randint(1,5000)
-    Z1, A1, Z2, A2= forward(X_test[i], W1, b1, W2, b2)
+    Z1, A1, Z2, A2= forward(X_test[v], W1, b1, W2, b2)
     pred = np.argmax(A2, axis=1)[0]
-    image = X_test[i].reshape(28, 28)
+    image = X_test[v].reshape(28, 28)
     ax.imshow(image, cmap="gray")
     ax.set_title(f"Pred: {pred}", fontsize=8)
     ax.axis("off")

@@ -1,3 +1,7 @@
+# ! 
+# ACHTUNG: Dieses Skript wurde nicht von mir selbst erstellt, es hat auch keinen neuen wirklichen Ki Aspekt es dient nur der
+# Visualisierung der Ergebnisse des trainierten Modells. Es ist ein reines Pygame Frontend für das Modell.
+
 """
 Ziffern-Erkennung mit Pygame – Zeichenfläche für ein selbstgebautes,
 reines NumPy-MLP (784 -> 128 -> 10, ReLU + Softmax).
