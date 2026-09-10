@@ -45,12 +45,14 @@ def load_model(path: str):
     """Lädt die Gewichte eines selbstgebauten 2-Schichten-MLP aus einer .npz-Datei.
     Erwartete Arrays: W1 (784, 128), b1 (1, 128), W2 (128, 10), b2 (1, 10)."""
     print(f"Lade Modell: {path} ...")
-    data = np.load(path)
+    data = np.load("variants/" + path + "/feige1.1.npz")
     weights = {
         "W1": data["W1"],
         "b1": data["b1"],
         "W2": data["W2"],
         "b2": data["b2"],
+        "W3": data["W3"],
+        "b3": data["b3"],
     }
     print("Modell geladen.")
     return weights
@@ -73,7 +75,9 @@ def forward_pass(weights, x):
     a1 = relu(z1)
     z2 = a1 @ weights["W2"] + weights["b2"]
     a2 = softmax(z2)
-    return a2
+    z3 = a2 @ weights["W3"] + weights["b3"]
+    a3 = softmax(z3)
+    return a3
 
 
 def draw_grid(screen, grid, offset_x, offset_y):
@@ -123,7 +127,7 @@ def classify(weights, grid):
 
 def main():
     if len(sys.argv) != 2:
-        print("Nutzung: python recognition.py cnn_model_feige1.0.npz")
+        print("Nutzung: python recognition.py <variant>")
         sys.exit(1)
 
     weights = load_model(sys.argv[1])

@@ -7,8 +7,9 @@ from save_model import save_model_artifacts
 
 # das mnsit datenset laden und die richtige struktur bringen
 
-# python3 main.py <trainning_data.csv> <output_model.npz>
-
+if len(sys.argv) != 2 :
+    print("Usage: python main.py <epochs>")
+    sys.exit(1)
 MODEL_NAME = "feige1.1"
 
 #load data
@@ -79,7 +80,7 @@ def relu_ableitung(z):
 m = X_train.shape[0]
 
 learning_rate = 0.05
-epochs = 40000
+epochs = int(sys.argv[1])
 saved_model = False
 
 for epoch in range(epochs):
